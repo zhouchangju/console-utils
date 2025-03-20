@@ -1,0 +1,57 @@
+{
+  "name": "console-utils",
+  "displayName": "Console Utils",
+  "description": "Support for rapid console function insertion/removal",
+  "repository": "https://github.com/zhouchangju/console-utils",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "console-logger.insertLog",
+        "title": "Insert Console Log"
+      },
+      {
+        "command": "console-logger.removeLogs",
+        "title": "Remove All Console Logs"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "console-logger.insertLog",
+        "key": "cmd+shift+d",
+        "mac": "cmd+shift+d",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "console-logger.removeLogs",
+        "key": "alt+shift+d",
+        "mac": "alt+shift+d",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "^16.11.7",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
+    "typescript": "^4.8.4"
+  }
+}
